@@ -1,0 +1,236 @@
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v1.14.0/dist/aframe-extras.min.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+  <script>
+    AFRAME.registerComponent('audiohandler', {
+      init: function () {
+        let playing = false;
+        let audio = document.querySelector("#audio");
+        this.el.addEventListener('click', () => {
+          if (!playing) {
+            audio.play();
+          } else {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+          playing = !playing;
+        });
+      }
+    })
+
+  </script>
+
+</head>
+
+<body>
+  <a-scene cursor="rayOrigin:mouse">
+
+    <a-entity position="0 2.5 20">
+      <a-camera universal-controls>
+        <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
+                    radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75">
+        </a-entity>
+      </a-camera>
+    </a-entity>
+
+    <a-assets>
+      <audio id="audio" crossorigin="anonymous" src="Sounds/Sound.mp3"></audio>
+      <a-asset-item id="CeilingfanO"
+        src="https://cdn.glitch.com/1eae885f-ae53-4ff4-8f1d-24b94e81e988%2F74e63c0c-df5a-4f88-a0dc-e7118cf071c5_540%20Ceiling%20Fan.obj?v=1600892230889">
+      </a-asset-item>
+      <a-asset-item id="CeilingfanM"
+        src="https://cdn.glitch.com/1eae885f-ae53-4ff4-8f1d-24b94e81e988%2F74e63c0c-df5a-4f88-a0dc-e7118cf071c5_540%20Ceiling%20Fan.mtl?v=1600892224519">
+      </a-asset-item>
+    </a-assets>
+
+    <a-box color="black" position="-5.575 3.501 -5.775" scale="0.3 0.3 0.2" audiohandler></a-box>
+
+    <a-entity id="Scene1" visible="true">
+
+      <!---sky--->
+      <a-sky color="#00BFFF"></a-sky>
+
+      <a-entity rotation="0 0 0" position="-5.257 12.889 5.497" color="#888" scale=".007 .003 .007"
+        obj-model="position:-5.257 12.889 5.497;obj:#CeilingfanO; mtl:#CeilingfanM" class="intersectable">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" easing="linear" repeat></a-animation>
+      </a-entity>
+
+      <!---Floor--->
+      <a-entity static-body geometry="primitive: box; depth: 25; height: 0.4; width: 20" position="-5.020 0.209 2.476"
+        material="shader: flat; side: double; opacity: 1;
+        src: url(images/WoodFloor.jpg); repeat: 20 12"></a-entity>
+
+      <!---Walls--->
+      <a-entity static-body="" geometry="width:25;height:14" position="-14.657 6.948 2.489" rotation="0 90 0"
+        material="roughness:1;src:images/WhiteWall.jpg"></a-entity>
+
+      <a-entity static-body="" geometry="width:20;height:14" position="-5.047 7.004 14.534" rotation="0 180 0"
+        material="repeat:2 1;roughness:1;src:images/WhiteWall.jpg"></a-entity>
+
+      <a-entity static-body="" geometry="width:20;height:14" position="-5.098 7.018 -9.879" rotation="0 180 0"
+        material="roughness:1;src:images/BlackWall.jpg"></a-entity>
+
+      <a-entity static-body="" geometry="height:14;width:25" position="4.291 6.896 2.259" rotation="0 90 0"
+        material="repeat:1 1;roughness:1;src:images/WhiteWall.jpg"></a-entity>
+
+
+      <!---Ceiling--->
+      <a-entity static-body geometry="primitive: box; depth: 25; height: 0.4; width: 20" position="-5.173 13.720 2.324"
+        material="shader: flat; side: double; opacity: 1;
+        src: url(images/WhiteWall.jpg);"></a-entity>
+
+      <!--- Door--->
+      <a-obj-model id="door" src="assets/d.obj" position="-11.757 -0.053 14.033" scale="2.0 2.0 2.0" material=""
+        rotation="0 90 0" color=#654321 class="intersectable">
+      </a-obj-model>
+
+      <!--- Bed --->
+      <a-obj-model id="bed" src="assets/bed.obj" position="2.512 0.254 4.201" scale="0.04 0.04 0.05" material=""
+        rotation="0 180 0" color=#362626 class="intersectable">
+      </a-obj-model>
+
+      <!--- chair --->
+      <a-obj-model id="chair" src="assets/chair.obj" position="-10.255 0.424 -1.331" scale="0.04 0.04 0.05" material=""
+        rotation="0 270 0" color=#362626 class="intersectable">
+      </a-obj-model>
+
+      <!--- AC --->
+      <a-obj-model id="AC" src="assets/AC/AC.obj" position="3.315 10.725 0.307" scale="0.04 0.04 0.05" material=""
+        rotation="0 180 0" color=#ffffff class="intersectable">
+      </a-obj-model>
+
+      <!--- TV --->
+      <a-obj-model id="TV" src="assets/tv.obj" mtl="assets/tv.mtl" position="-0.959 2.753 -7.963"
+        scale="0.200 0.150 0.050" material="" rotation="0 0 0" class="intersectable">
+      </a-obj-model>
+
+      <!--- Speaker --->
+      <a-obj-model id="Speaker" src="assets/Speaker.obj" mtl="assets/Speaker.mtl" position="-6.179 1.811 -6.988"
+        material="" rotation="0 0 0" class="intersectable">
+      </a-obj-model>
+
+      <!--- Laptop Table -->
+      <a-box position="-12.153 1.885 -3.000" rotation="0 90 0" scale="0.2 3 0.2" color="#362626" shadow></a-box>
+      <a-box position="-12.153 1.885 1.000" rotation="0 90 0" scale="0.2 3 0.2" color="#362626" shadow></a-box>
+      <a-box position="-14.153 1.885 -3.000" rotation="0 90 0" scale="0.2 3 0.2" color="#362626" shadow></a-box>
+      <a-box position="-14.153 1.885 1.000" rotation="0 90 0" scale="0.2 3 0.2" color="#362626" shadow></a-box>
+      <a-box position="-13.920 3.254 -1.084" rotation="0 90 0" scale="8 0.3 4.2" color="#362626" shadow></a-box>
+
+      <!--- Tv Table -->
+      <a-box position="-0.989 2.539 -8.053" rotation="0 0 0" scale="8 0.3 4.2" color="#362626" shadow></a-box>
+      <a-box position="-0.989 1.539 -8.053" rotation="0 0 0" scale="8 0.3 4.2" color="#362626" shadow></a-box>
+      <a-box position="-0.989 0.539 -8.053" rotation="0 0 0" scale="8 0.3 4.2" color="#362626" shadow></a-box>
+      <a-box position="-4.887 1.692 -8.049" rotation="0 0 0" scale="0.2 2 4.2" color="#362626" shadow></a-box>
+      <a-box position="2.904 1.626 -8.053" rotation="0 0 0" scale="0.2 2 4.2" color="#362626" shadow></a-box>
+      <a-box position="-0.993 1.565 -9.359" rotation="0 0 0" scale="8.0 2 0.2" color="#8e8080" shadow></a-box>
+
+      <!--- Bed Table -->
+      <a-dodecahedron src="#platform" radius="0.75" position="-6.567 1.797 12.062" rotation="90 0 0" scale="2.0 2 0.2"
+        color="#8e8080" shadow></a-dodecahedron>
+
+      <!--- Lightbulbs --->
+      <a-light type="point" position="-10.230 8.126 -2.045" light="distance:12;color:#ffffff" id="Living_Light1">
+      </a-light>
+
+      <a-light type="point" position="-0.631 6.671 11.919" light="distance:12;color:#ffffff" id="Living_Light3">
+      </a-light>
+    </a-entity>
+
+    <a-entity id="lights" visible="true">
+      <!--- Lightbulbs --->
+      <a-light type="point" position="-10.230 8.126 -2.045" light="distance:12;color:#ffffff" id="Living_Light1">
+      </a-light>
+      <a-light type="point" position="-11.996 4.682 8.219" light="distance:12;color:#ffffff" id="Living_Light11">
+      </a-light>
+      <a-light type="point" position="-3.212 5.500 -4.925" light="distance:12;color:#ffffff" id="Living_Light2">
+      </a-light>
+      <a-light type="point" position="-8.212 5.500 -4.925" light="distance:12;color:#ffffff" id="Living_Light22">
+      </a-light>
+
+      <a-light type="point" position="-0.631 6.671 11.919" light="distance:12;color:#ffffff" id="Living_Light3">
+      </a-light>
+      <a-light type="point" position="-9.631 6.671 11.919" light="distance:12;color:#ffffff" id="Living_Light33">
+      </a-light>
+      <a-light type="point" position="-1.457 5.500 1.500" light="distance:12;color:#ffffff" id="Living_Light4">
+      </a-light>
+      <a-light type="point" position="-0.457 5.500 1.500" light="distance:12;color:#ffffff" id="Living_Light44">
+      </a-light>
+    </a-entity>
+
+    <a-box color="black" position="-13.911 4.449 3.853" scale="0.15 0.5 0.5" onclick="covidMode()"> </a-box>
+
+    <a-box color="black" position="-7.593 5.856 13.644" rotation="0 90 0" scale="0.15 0.5 0.5" onclick="lightsOff()">
+    </a-box>
+
+    <a-box color="black" position="-7.593 4.856 13.644" rotation="0 90 0" scale="0.15 0.5 0.5" onclick="lightsOn()">
+    </a-box>
+
+    <a-entity id="Scene2" visible="false">
+
+      <!--- Hand Sanitizer1 --->
+      <a-obj-model src="assets/sanitizer.obj" mtl="assets/sanitizer.mtl" position="-6.567 1.957 12.062"
+        scale="0.1 0.1 0.1" rotation="0 90 0" material=""></a-obj-model>
+
+      <!--- Hand Sanitizer2 --->
+      <a-obj-model src="assets/sanitizer.obj" mtl="assets/sanitizer.mtl" position="-12.592 3.499 1.374"
+        scale="0.2 0.21 0.2" rotation="0 90 0" material=""></a-obj-model>
+
+      <!--- Monitor1 --->
+      <a-obj-model id="Monitor1" src="assets/Monitor/Monitor.obj" mtl="assets/Monitor/Monitor.mtl"
+        position="-13.094 4.841 1.925" scale="0.050 0.150 0.200" material="" rotation="0 30 0" class="intersectable">
+      </a-obj-model>
+
+      <!--- Monitor2 --->
+      <a-obj-model id="Monitor2" src="assets/Monitor/Monitor.obj" mtl="assets/Monitor/Monitor.mtl"
+        position="-13.996 4.841 -2.582" scale="0.050 0.150 0.200" material="" rotation="0 330 0" class="intersectable">
+      </a-obj-model>
+
+      <!--- Keyboard --->
+      <a-obj-model id="Keyboard" src="assets/keyboard.obj" mtl="assets/Keyboard.mtl" position="-12.249 3.439 -1.097"
+        scale="0.40 0.5 0.20" material="" rotation="0 90 0" class="intersectable">
+      </a-obj-model>
+
+
+    </a-entity>
+
+    <a-entity id="Scene3" visible="true">
+
+      <!--- MAC --->
+      <a-obj-model id="MAC" src="assets/laptop.obj" mtl="assets/laptop.mtl" position="-12.823 3.425 -0.978"
+        scale="0.020 0.015 0.020" material="" rotation="270 270 90" class="intersectable">
+      </a-obj-model>
+
+
+    </a-entity>
+
+    <script type="text/javascript">
+      function covidMode() {
+        document.getElementById('Scene1').setAttribute('visible', 'true')
+        document.getElementById('Scene2').setAttribute('visible', 'true')
+        document.getElementById('Scene3').setAttribute('visible', 'false')
+
+      }
+
+      function lightsOn() {
+        document.getElementById('Scene1').setAttribute('visible', 'true')
+        document.getElementById('lights').setAttribute('visible', 'true')
+
+      }
+
+      function lightsOff() {
+        document.getElementById('Scene1').setAttribute('visible', 'true')
+        document.getElementById('lights').setAttribute('visible', 'false')
+
+      }
+
+
+    </script>
+
+
+  </a-scene>
+</body>
+</html>
