@@ -57,3 +57,21 @@ This project mainly focuses on creating a Interactive VR model. This project gav
       <a-box position="-14.153 1.885 1.000" rotation="0 90 0" scale="0.2 3 0.2" color="#362626" shadow></a-box>
       <a-box position="-13.920 3.254 -1.084" rotation="0 90 0" scale="8 0.3 4.2" color="#362626" shadow></a-box>
   ```
+  ###Objects: 
+  • Walls
+  • Bed
+  • chair
+  • sofa
+  • tv
+  • speaker
+  • AC
+  • fan
+  • laptop
+  • Monitors
+  • Keyboard
+  • Tables
+  • Switches
+  
+  ###Screenshots of the model are displayed below:
+  ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround.png)
+  (https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround2.png)
