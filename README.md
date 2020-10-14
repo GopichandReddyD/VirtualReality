@@ -79,4 +79,7 @@ This project mainly focuses on creating a Interactive VR model. This project gav
   ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround2.png)
   ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround3.png)
   ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround_CovidMode.png)
-  ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/SpaceAround_NightMode.png)
+  ![alt text](https://github.com/GopichandReddyD/VirtualReality/blob/main/VirtualReality_Project_1/Screenshots/SpaceAround_NightMode.png)
+  
+  ### Conclusion:
+   This project gave me a great oppurtuniy in learning to design virtual spaces. Demonstrating an idea using 3D view will be the best part in future. I would like to come back and improve object qualities, areas and next rooms of the project.
