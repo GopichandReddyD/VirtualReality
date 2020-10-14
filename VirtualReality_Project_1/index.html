@@ -35,7 +35,7 @@
                     radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75">
         </a-entity>
       </a-camera>
-    </a-entity>
+    </a-entity> -->
 
     <a-assets>
       <audio id="audio" crossorigin="anonymous" src="Sounds/Sound.mp3"></audio>
@@ -93,10 +93,17 @@
         rotation="0 180 0" color=#362626 class="intersectable">
       </a-obj-model>
 
-      <!--- chair --->
+      <!---Chair-->
       <a-obj-model id="chair" src="assets/chair.obj" position="-10.255 0.424 -1.331" scale="0.04 0.04 0.05" material=""
         rotation="0 270 0" color=#362626 class="intersectable">
       </a-obj-model>
+
+      <a-entity>
+        <!--- dog --->
+        <a-obj-model id="Dog" src="assets/Dog.obj" position="-9.721 0.424 -7.693" scale="0.2 0.2 0.3" material=""
+          rotation="0 217.991 0" color=#362626 class="intersectable">
+          <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 45 0" easing="linear" repeat></a-animation>
+      </a-entity>
 
       <!--- AC --->
       <a-obj-model id="AC" src="assets/AC/AC.obj" position="3.315 10.725 0.307" scale="0.04 0.04 0.05" material=""
@@ -233,4 +240,5 @@
 
   </a-scene>
 </body>
+
 </html>
