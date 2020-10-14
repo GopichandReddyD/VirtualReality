@@ -5,7 +5,7 @@ This project mainly focuses on creating a Interactive VR model. This project gav
 
 ### Video Demonstration:
 
-![alt text](https://youtu.be/h0_7AokOhbw)
+https://youtu.be/h0_7AokOhbw
 
 ### Theme:
 •	Theme of the project is to Create my personal space and add the changes which took place because of covid.
